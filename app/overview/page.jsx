@@ -4,6 +4,7 @@ import StateCard from '@/components/StateCard'
 import { DollarSign, ShoppingBag, SquareActivity, Users } from 'lucide-react'
 import React from 'react'
 import { motion } from 'framer-motion'
+import SalesOverviewChart from '@/components/SalesOverviewChart'
 
 const OverviewPage = () => {
     return (
@@ -20,6 +21,10 @@ const OverviewPage = () => {
                     <StateCard name="Total Products" icon={ShoppingBag} value="964"/>
                     <StateCard name="Stock" icon={SquareActivity} value="20,798"/>
                 </motion.div>
+
+                <div className='grid grid-cols-1 lg:grid-cols2 gap-8'>
+                    <SalesOverviewChart/>
+                </div>
             </main>
         </div>
     )
