@@ -6,6 +6,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import SalesOverviewChart from '@/components/SalesOverviewChart'
 import CategoryDistributionChart from '@/components/CategoryDistributionChart'
+import OrderDistributionChart from '@/components/OrderDistributionChart'
+import ProductPerformanceChart from '@/components/ProductPerformanceChart'
 
 const OverviewPage = () => {
     return (
@@ -26,6 +28,8 @@ const OverviewPage = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
                     <SalesOverviewChart/>
                     <CategoryDistributionChart/>
+                    <OrderDistributionChart/>
+                    <ProductPerformanceChart/>
                 </div>
             </main>
         </div>
