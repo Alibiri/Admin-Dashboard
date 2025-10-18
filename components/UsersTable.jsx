@@ -7,6 +7,7 @@ import Image from "next/image";
 
 const UsersTable = () => {
     const [clients, setClients] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         const fetchClients = async () => {
@@ -20,6 +21,12 @@ const UsersTable = () => {
         };
         fetchClients();
     }, []);
+
+    const filteredClients = clients.filter(
+        (client) => 
+            client.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+            client.email.toLowerCase().includes(searchTerm.toLowerCase())
+        );
 
     return (
         <motion.div
@@ -36,6 +43,8 @@ const UsersTable = () => {
             <div className="relative w-full sm:w-auto">
             <input
                 type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search Clients"
                 className="bg-[#2f2f2f] text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2
                 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200 text-sm"
@@ -63,7 +72,7 @@ const UsersTable = () => {
             </thead>
 
             <tbody className="divide-y divide-gray-700">
-                {clients.map((client, index) => (
+                {filteredClients.map((client, index) => (
                 <motion.tr
                     key={client.id}
                     initial={{ opacity: 0, y: 10 }}
