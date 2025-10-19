@@ -4,6 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import StateCard from '@/components/StateCard'
 import { CreditCard, DollarSign, ShoppingCart, TrendingUp } from 'lucide-react'
+import SalesOverviewChart from '@/components/SalesOverviewChart'
+import CategoryDistributionChart from '@/components/CategoryDistributionChart'
 
 const SalesPage = () => {
     return (
@@ -20,6 +22,11 @@ const SalesPage = () => {
                     <StateCard name="Total Sales" icon={CreditCard} value="$125,700"/>
                     <StateCard name="Total Growth" icon={TrendingUp} value="$37.2%"/>
                 </motion.div>
+
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8'>
+                    <SalesOverviewChart/>
+                    <CategoryDistributionChart/>
+                </div>
             </main>
         </div>
     )
